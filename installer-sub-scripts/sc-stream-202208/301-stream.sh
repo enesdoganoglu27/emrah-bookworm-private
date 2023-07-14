@@ -85,6 +85,9 @@ lxc.group = eb-group
 lxc.group = onboot
 EOF
 
+# changed/added system files
+cp etc/apt/sources.list $ROOTFS/etc/apt/
+
 # container network
 cp $MACHINE_COMMON/etc/systemd/network/eth0.network $ROOTFS/etc/systemd/network/
 sed -i "s/___IP___/$IP/" $ROOTFS/etc/systemd/network/eth0.network
