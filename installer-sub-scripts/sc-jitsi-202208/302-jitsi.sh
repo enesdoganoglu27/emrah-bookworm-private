@@ -249,10 +249,10 @@ cp /root/.ssh/jms.pub $ROOTFS/usr/share/jitsi-meet/static/
 # SYSTEM CONFIGURATION
 # ------------------------------------------------------------------------------
 # certificates
-cp /root/eb-ssl/eb-CA.pem $ROOTFS/usr/local/share/ca-certificates/jms-CA.crt
-cp /root/eb-ssl/eb-CA.pem $ROOTFS/usr/share/jitsi-meet/static/jms-CA.crt
-cp /root/eb-ssl/eb-jitsi.key $ROOTFS/etc/ssl/private/eb-cert.key
-cp /root/eb-ssl/eb-jitsi.pem $ROOTFS/etc/ssl/certs/eb-cert.pem
+cp /root/eb-certs/eb-CA.pem $ROOTFS/usr/local/share/ca-certificates/jms-CA.crt
+cp /root/eb-certs/eb-CA.pem $ROOTFS/usr/share/jitsi-meet/static/jms-CA.crt
+cp /root/eb-certs/eb-jitsi.key $ROOTFS/etc/ssl/private/eb-cert.key
+cp /root/eb-certs/eb-jitsi.pem $ROOTFS/etc/ssl/certs/eb-cert.pem
 
 lxc-attach -n $MACH -- zsh <<EOS
 set -e

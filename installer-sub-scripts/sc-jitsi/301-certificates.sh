@@ -26,8 +26,8 @@ echo EXTERNAL_IP="$EXTERNAL_IP" >> $INSTALLER/000-source
 # ------------------------------------------------------------------------------
 # SELF-SIGNED CERTIFICATE
 # ------------------------------------------------------------------------------
-cd /root/eb-ssl
-rm -f /root/eb-ssl/eb-jitsi.*
+cd /root/eb-certs
+rm -f /root/eb-certs/eb-jitsi.*
 
 # the extension file for multiple hosts:
 # the container IP, the host IP and the host names
