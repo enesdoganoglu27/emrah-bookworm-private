@@ -167,11 +167,11 @@ cd /tmp/source
 export DEBIAN_FRONTEND=noninteractive
 apt-get $APT_PROXY -dy source nginx
 tar xf nginx_*.debian.tar.xz
-
-cp /tmp/source/debian/modules/rtmp/stat.xsl \
+EOS
+cp etc/nginx/stat.xsl \
     /usr/local/eb/livestream/stat/rtmp_stat.xsl
 chown www-data: /usr/local/eb/livestream/stat/rtmp_stat.xsl
-EOS
+
 
 # tools
 cp usr/local/bin/create-frames $ROOTFS/usr/local/bin/
