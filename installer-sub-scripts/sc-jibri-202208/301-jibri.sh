@@ -170,7 +170,7 @@ EOS
 lxc-attach -n $MACH -- zsh <<EOS
 set -e
 export DEBIAN_FRONTEND=noninteractive
-apt-get $APT_PROXY -y install openjdk-11-jre-headless
+apt-get $APT_PROXY -y install openjdk-22-jre-headless
 apt-get $APT_PROXY -y install \
     jibri=8.0-121-g27323fe-1
 EOS
