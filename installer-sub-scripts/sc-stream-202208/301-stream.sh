@@ -169,8 +169,11 @@ apt-get $APT_PROXY -dy source nginx
 tar xf nginx_*.debian.tar.xz
 EOS
 cp etc/nginx/stat.xsl \
-    /usr/local/eb/livestream/stat/rtmp_stat.xsl
+    $ROOTFS/usr/local/eb/livestream/stat/rtmp_stat.xsl
+    
+lxc-attach -n $MACH -- zsh <<EOS
 chown www-data: /usr/local/eb/livestream/stat/rtmp_stat.xsl
+EOS
 
 
 # tools
