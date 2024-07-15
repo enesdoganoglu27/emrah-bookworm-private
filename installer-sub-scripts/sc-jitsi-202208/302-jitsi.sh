@@ -72,8 +72,8 @@ fi
 # ------------------------------------------------------------------------------
 # stop the template container if it's running
 set +e
-lxc-stop -n eb-bullseye
-lxc-wait -n eb-bullseye -s STOPPED
+lxc-stop -n eb-trixie
+lxc-wait -n eb-trixie -s STOPPED
 set -e
 
 # remove the old container if exists
@@ -86,7 +86,7 @@ sleep 1
 set -e
 
 # create the new one
-lxc-copy -n eb-bullseye -N $MACH -p /var/lib/lxc/
+lxc-copy -n eb-trixie -N $MACH -p /var/lib/lxc/
 
 # the shared directories
 mkdir -p $SHARED/cache
