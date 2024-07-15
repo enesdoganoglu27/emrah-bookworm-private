@@ -156,12 +156,11 @@ touch /usr/local/eb/livestream/index.html
 ln -s /media/frames /usr/local/eb/livestream/frames
 chown www-data: /usr/local/eb/livestream -R
 EOS
-
+mkdir /var/lib/lxc/eb-stream/rootfs/tmp/source
+chown _apt:root /var/lib/lxc/eb-stream/rootfs/tmp/source
 # rmpt_stat
 lxc-attach -n $MACH -- zsh <<EOS
 set -e
-mkdir /tmp/source
-chown _apt:root /tmp/source
 cd /tmp/source
 
 export DEBIAN_FRONTEND=noninteractive
