@@ -167,6 +167,7 @@ cd /tmp/source
 export DEBIAN_FRONTEND=noninteractive
 apt-get $APT_PROXY -dy source nginx
 tar xf nginx_*.debian.tar.xz
+tar xf nginx_1.26.0.orig.tar.gz
 
 cp /tmp/source/debian/modules/rtmp/stat.xsl \
     /usr/local/eb/livestream/stat/rtmp_stat.xsl
