@@ -62,6 +62,6 @@ echo "IP.$i = $REMOTE_IP" >>eb-jitsi.ext
 # the domain key and the domain certificate
 openssl req -nodes -newkey rsa:2048 \
     -keyout eb-jitsi.key -out eb-jitsi.csr \
-    -subj "/O=emrah-bullseye/OU=eb-jitsi/CN=$JITSI_FQDN"
+    -subj "/O=emrah-trixie/OU=eb-jitsi/CN=$JITSI_FQDN"
 openssl x509 -req -CA eb-CA.pem -CAkey eb-CA.key -CAcreateserial -days 10950 \
     -in eb-jitsi.csr -out eb-jitsi.pem -extfile eb-jitsi.ext
