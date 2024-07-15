@@ -161,6 +161,7 @@ EOS
 lxc-attach -n $MACH -- zsh <<EOS
 set -e
 mkdir /tmp/source
+chown _apt:root /tmp/source
 cd /tmp/source
 
 export DEBIAN_FRONTEND=noninteractive
