@@ -27,7 +27,7 @@ RESERVED=0
 CPI=4
 
 # The total cores
-CORES=$(nproc --all)
+CORES=$(lscpu | grep '^CPU(s):' | awk '{print $2}')
 
 # The available cores count
 (( N = LIMIT * CPI ))
