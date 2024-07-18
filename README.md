@@ -9,3 +9,6 @@ wget https://raw.githubusercontent.com/enesdoganoglu06/emrah-trixie-base/main/in
 wget https://raw.githubusercontent.com/enesdoganoglu06/emrah-trixie-private/main/installer/<TEMPLATE_NAME>.conf
 bash eb <TEMPLATE_NAME>
 ```
+# Debian Trixie Download Link
+
+- [Trixie Download](https://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/amd64/iso-cd/) 
