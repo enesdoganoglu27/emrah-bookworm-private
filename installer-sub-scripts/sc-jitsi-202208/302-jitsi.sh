@@ -401,7 +401,7 @@ ln -s /usr/local/share/nginx/modules-available/jitsi-meet.conf \
 rm /etc/nginx/sites-enabled/default
 rm -rf /var/www/html
 ln -s /usr/share/jitsi-meet /var/www/html
-apt $APT_PROXY -y install libnginx-mod-stream
+
 EOS
 
 lxc-attach -n $MACH -- systemctl daemon-reload
