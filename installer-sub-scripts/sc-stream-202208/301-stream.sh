@@ -160,15 +160,18 @@ EOS
 # rmpt_stat
 lxc-attach -n $MACH -- zsh <<EOS
 set -e
-mkdir /tmp/source
+mkdir -p /tmp/source
+chown _apt:root /tmp/source
 cd /tmp/source
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get $APT_PROXY -dy source nginx
 tar xf nginx_*.debian.tar.xz
-
-cp /tmp/source/debian/modules/rtmp/stat.xsl \
-    /usr/local/eb/livestream/stat/rtmp_stat.xsl
+EOS
+cp etc/nginx/stat.xsl \
+    $ROOTFS/usr/local/eb/livestream/stat/rtmp_stat.xsl
+    
+lxc-attach -n $MACH -- zsh <<EOS
 chown www-data: /usr/local/eb/livestream/stat/rtmp_stat.xsl
 EOS
 
