@@ -12,8 +12,8 @@ set -e
 SSH_CONFIG="/root/.ssh/jms-config"
 
 APP="eb-jvb"
-APP_REPO="https://github.com/serdar28/emrah-bullseye-private.git"
-INSTALLER="https://raw.githubusercontent.com/serdar28/emrah-bullseye-base/main/installer/eb"
+APP_REPO="https://github.com/enesdoganoglu27/emrah-bookworm-private.git"
+INSTALLER="https://raw.githubusercontent.com/enesdoganoglu27/emrah-bookworm-base/main/installer/eb"
 NODE=$1
 
 JITSI_ROOTFS="/var/lib/lxc/eb-jitsi/rootfs"
@@ -87,7 +87,7 @@ export JVB_VERSION=$JVB_VERSION
 export JVB_SHARD_PASSWD=$JVB_SHARD_PASSWD
 export DONT_RUN_HOST_CUSTOM_CA=true
 export APT_PROXY=$APT_PROXY
-export REINSTALL_BULLSEYE_IF_EXISTS=$REINSTALL_BULLSEYE_IF_EXISTS
+export REINSTALL_BOOKWORM_IF_EXISTS=$REINSTALL_BOOKWORM_IF_EXISTS
 
 cd /tmp
 bash eb-installer $APP
