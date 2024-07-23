@@ -181,7 +181,7 @@ debconf-set-selections <<< \
 debconf-set-selections <<< \
     'jitsi-meet-web-config jitsi-meet/cert-choice select Generate a new self-signed certificate (You will later get a chance to obtain a Let'\''s encrypt certificate)'
 
-apt-get $APT_PROXY -y install openjdk-22-jre-headless
+apt-get $APT_PROXY -y install openjdk-17-jre-headless
 apt-get $APT_PROXY -y --install-recommends install \
     jitsi-meet=2.0.7648-1 \
     jitsi-meet-web=1.0.6447-1 \
