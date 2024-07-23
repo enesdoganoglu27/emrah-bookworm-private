@@ -11,4 +11,4 @@ bash eb <TEMPLATE_NAME>
 ```
 # Debian Trixie Download Link
 
-- [Bookworm Download](https://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/amd64/iso-cd/) 
+- [Bookworm Download](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/) 
