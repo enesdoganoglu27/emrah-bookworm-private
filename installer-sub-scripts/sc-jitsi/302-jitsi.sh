@@ -181,7 +181,7 @@ debconf-set-selections <<< \
 debconf-set-selections <<< \
     'jitsi-meet-web-config jitsi-meet/cert-choice select Generate a new self-signed certificate'
 
-apt-get $APT_PROXY -y install openjdk-11-jre-headless
+apt-get $APT_PROXY -y install openjdk-17-jre-headless
 apt-get $APT_PROXY -y --install-recommends install jitsi-meet
 EOS
 
