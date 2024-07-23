@@ -12,8 +12,8 @@ set -e
 NODE=$1
 STREAM=$2
 SSH_CONFIG=/root/.ssh/jms-config
-INSTALLER=https://raw.githubusercontent.com/enesdoganoglu06/emrah-trixie-base/main/installer/eb
-INSTALLER_CONFIG=https://raw.githubusercontent.com/enesdoganoglu06/emrah-trixie-private/main/installer/sc-jibri.conf
+INSTALLER=https://raw.githubusercontent.com/enesdoganoglu27/emrah-bookworm-base/main/installer/eb
+INSTALLER_CONFIG=https://raw.githubusercontent.com/enesdoganoglu27/emrah-bookworm-private/main/installer/sc-jibri.conf
 JITSI_ROOTFS=/var/lib/lxc/eb-jitsi/rootfs
 JIBRI_ROOTFS=/var/lib/lxc/eb-jibri-template/rootfs
 JIBRI_VERSION=$(cat $JITSI_ROOTFS/root/meta/jibri-version || true)
