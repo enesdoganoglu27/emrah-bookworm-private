@@ -102,3 +102,6 @@ cp /root/.ssh/jibri.pub $JITSI_ROOTFS/usr/share/jitsi-meet/static/
 cp $MACHINES/eb-jitsi-host/usr/local/sbin/add-jibri-node.sc.202208 \
     /usr/local/sbin/add-jibri-node
 chmod 744 /usr/local/sbin/add-jibri-node
+cp $MACHINES/eb-jitsi-host/usr/local/sbin/add-jvb-node \
+    /usr/local/sbin/add-jvb-node
+chmod 744 /usr/local/sbin/add-jvb-node
