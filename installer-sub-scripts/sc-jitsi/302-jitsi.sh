@@ -388,6 +388,7 @@ ln -s /usr/local/share/nginx/modules-available/jitsi-meet.conf \
 rm /etc/nginx/sites-enabled/default
 rm -rf /var/www/html
 ln -s /usr/share/jitsi-meet /var/www/html
+apt-get $APT_PROXY -y install libnginx-mod-stream
 EOS
 
 lxc-attach -n $MACH -- systemctl daemon-reload
@@ -407,6 +408,15 @@ cp $ROOTFS/etc/jitsi/videobridge/sip-communicator.properties \
 lxc-attach -n $MACH -- zsh <<EOS
 set -e
 mkdir -p /root/meta
+chmod 700 /root/meta
+echo $JITSI_FQDN >/root/meta/jitsi-fqdn
+EOS
+JVB_SHARD_PASSWD=$(egrep '^org.jitsi.videobridge.xmpp.user.shard.PASSWORD=' \
+    $ROOTFS/etc/jitsi/videobridge/sip-communicator.properties | \
+    cut -d '=' -f2)
+lxc-attach -n $MACH -- zsh <<EOS
+echo '$JVB_SHARD_PASSWD' >/root/meta/jvb-shard-passwd
+chmod 600 /root/meta/jvb-shard-passwd
 VERSION=\$(apt-cache policy jitsi-videobridge2 | grep Installed | rev | \
     cut -d' ' -f1 | rev)
 echo \$VERSION > /root/meta/jvb-version
