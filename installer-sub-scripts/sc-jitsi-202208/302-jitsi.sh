@@ -72,8 +72,8 @@ fi
 # ------------------------------------------------------------------------------
 # stop the template container if it's running
 set +e
-lxc-stop -n eb-bullseye
-lxc-wait -n eb-bullseye -s STOPPED
+lxc-stop -n eb-bookworm
+lxc-wait -n eb-bookworm -s STOPPED
 set -e
 
 # remove the old container if exists
@@ -86,7 +86,7 @@ sleep 1
 set -e
 
 # create the new one
-lxc-copy -n eb-bullseye -N $MACH -p /var/lib/lxc/
+lxc-copy -n eb-bookworm -N $MACH -p /var/lib/lxc/
 
 # the shared directories
 mkdir -p $SHARED/cache
@@ -181,7 +181,7 @@ debconf-set-selections <<< \
 debconf-set-selections <<< \
     'jitsi-meet-web-config jitsi-meet/cert-choice select Generate a new self-signed certificate (You will later get a chance to obtain a Let'\''s encrypt certificate)'
 
-apt-get $APT_PROXY -y install openjdk-11-jre-headless
+apt-get $APT_PROXY -y install openjdk-17-jre-headless
 apt-get $APT_PROXY -y --install-recommends install \
     jitsi-meet=2.0.7648-1 \
     jitsi-meet-web=1.0.6447-1 \
@@ -415,6 +415,15 @@ cp $ROOTFS/etc/jitsi/videobridge/sip-communicator.properties \
 lxc-attach -n $MACH -- zsh <<EOS
 set -e
 mkdir -p /root/meta
+chmod 700 /root/meta
+echo $JITSI_FQDN >/root/meta/jitsi-fqdn
+EOS
+JVB_SHARD_PASSWD=$(egrep '^org.jitsi.videobridge.xmpp.user.shard.PASSWORD=' \
+    $ROOTFS/etc/jitsi/videobridge/sip-communicator.properties | \
+    cut -d '=' -f2)
+lxc-attach -n $MACH -- zsh <<EOS
+echo '$JVB_SHARD_PASSWD' >/root/meta/jvb-shard-passwd
+chmod 600 /root/meta/jvb-shard-passwd
 VERSION=\$(apt-cache policy jitsi-videobridge2 | grep Installed | rev | \
     cut -d' ' -f1 | rev)
 echo \$VERSION > /root/meta/jvb-version
