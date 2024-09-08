@@ -48,8 +48,8 @@ echo "-------------------------- $MACH --------------------------"
 # ------------------------------------------------------------------------------
 # stop the template container if it's running
 set +e
-lxc-stop -n eb-bullseye
-lxc-wait -n eb-bullseye -s STOPPED
+lxc-stop -n eb-bookworm
+lxc-wait -n eb-bookworm -s STOPPED
 set -e
 
 # remove the old container if exists
@@ -62,7 +62,7 @@ sleep 1
 set -e
 
 # create the new one
-lxc-copy -n eb-bullseye -N $MACH -p /var/lib/lxc/
+lxc-copy -n eb-bookworm -N $MACH -p /var/lib/lxc/
 
 # the shared directories
 mkdir -p $SHARED/cache
@@ -163,15 +163,19 @@ EOS
 # rmpt_stat
 lxc-attach -n $MACH -- zsh <<EOS
 set -e
-mkdir /tmp/source
+mkdir -p /tmp/source
+chown _apt:root /tmp/source
 cd /tmp/source
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get $APT_PROXY -dy source nginx
 tar xf nginx_*.debian.tar.xz
 
-cp /tmp/source/debian/modules/rtmp/stat.xsl \
-    /usr/local/eb/livestream/stat/rtmp_stat.xsl
+EOS
+cp etc/nginx/stat.xsl \
+    $ROOTFS/usr/local/eb/livestream/stat/rtmp_stat.xsl
+    
+lxc-attach -n $MACH -- zsh <<EOS
 chown www-data: /usr/local/eb/livestream/stat/rtmp_stat.xsl
 EOS
 
