@@ -182,14 +182,7 @@ debconf-set-selections <<< \
     'jitsi-meet-web-config jitsi-meet/cert-choice select Generate a new self-signed certificate (You will later get a chance to obtain a Let'\''s encrypt certificate)'
 
 apt-get $APT_PROXY -y install openjdk-17-jre-headless
-apt-get $APT_PROXY -y --install-recommends install \
-    jitsi-meet=2.0.7648-1 \
-    jitsi-meet-web=1.0.6447-1 \
-    jitsi-meet-web-config=1.0.6447-1 \
-    jitsi-meet-prosody=1.0.6447-1 \
-    jitsi-meet-turnserver=1.0.6918-1 \
-    jitsi-videobridge2=2.2-22-g42bc1b99-1 \
-    jicofo=1.0-911-1
+apt-get $APT_PROXY -y --install-recommends install jitsi-meet
 EOS
 
 # jitsi-meet-tokens
@@ -210,8 +203,7 @@ debconf-set-selections <<< \
     "jitsi-meet-tokens jitsi-meet-tokens/appid string $APP_ID"
 debconf-set-selections <<< \
     "jitsi-meet-tokens jitsi-meet-tokens/appsecret password $APP_SECRET"
-apt-get $APT_PROXY -y install \
-    jitsi-meet-tokens=1.0.6447-1
+apt-get $APT_PROXY -y install jitsi-meet-tokens
 EOS
 
 # hold
