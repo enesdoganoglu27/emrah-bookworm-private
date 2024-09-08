@@ -207,13 +207,13 @@ sed -i "/^\s*SHOW_JITSI_WATERMARK:/ s/true/false/" $JITSI_MEET_INTERFACE
 # ------------------------------------------------------------------------------
 # CUSTOM FILES
 # ------------------------------------------------------------------------------
-cp $JITSI_ROOTFS/usr/share/jitsi-meet/favicon.ico \
-    $JITSI_ROOTFS/usr/share/jitsi-meet/favicon.ico.org
-cp $FOLDER/files/favicon.ico $JITSI_ROOTFS/usr/share/jitsi-meet/
+#cp $JITSI_ROOTFS/usr/share/jitsi-meet/favicon.ico \
+#     $JITSI_ROOTFS/usr/share/jitsi-meet/favicon.ico.org
+#cp $FOLDER/files/favicon.ico $JITSI_ROOTFS/usr/share/jitsi-meet/
 
-cp $JITSI_ROOTFS/usr/share/jitsi-meet/images/favicon.ico \
-    $JITSI_ROOTFS/usr/share/jitsi-meet/images/favicon.ico.org
-cp $FOLDER/files/favicon.ico $JITSI_ROOTFS/usr/share/jitsi-meet/images/
+#cp $JITSI_ROOTFS/usr/share/jitsi-meet/images/favicon.ico \
+#    $JITSI_ROOTFS/usr/share/jitsi-meet/images/favicon.ico.org
+#cp $FOLDER/files/favicon.ico $JITSI_ROOTFS/usr/share/jitsi-meet/images/
 
 cp $JITSI_ROOTFS/usr/share/jitsi-meet/images/watermark.svg \
     $JITSI_ROOTFS/usr/share/jitsi-meet/images/watermark.svg.org
