@@ -25,8 +25,8 @@ echo "-------------------------- $MACH --------------------------"
 # ------------------------------------------------------------------------------
 # stop the template container if it's running
 set +e
-lxc-stop -n eb-bullseye
-lxc-wait -n eb-bullseye -s STOPPED
+lxc-stop -n eb-bookworm
+lxc-wait -n eb-bookworm -s STOPPED
 set -e
 
 # remove the old container if exists
@@ -41,7 +41,7 @@ sleep 1
 set -e
 
 # create the new one
-lxc-copy -n eb-bullseye -N $MACH -p /var/lib/lxc/
+lxc-copy -n eb-bookworm -N $MACH -p /var/lib/lxc/
 
 # the shared directories
 mkdir -p $SHARED/cache
@@ -170,7 +170,7 @@ EOS
 lxc-attach -n $MACH -- zsh <<EOS
 set -e
 export DEBIAN_FRONTEND=noninteractive
-apt-get $APT_PROXY -y install openjdk-11-jre-headless
+apt-get $APT_PROXY -y install openjdk-17-jre-headless
 
 [[ -z "$JIBRI_VERSION" ]] && \
     apt-get $APT_PROXY -y install jibri || \
