@@ -210,7 +210,8 @@ debconf-set-selections <<< \
     "jitsi-meet-tokens jitsi-meet-tokens/appid string $APP_ID"
 debconf-set-selections <<< \
     "jitsi-meet-tokens jitsi-meet-tokens/appsecret password $APP_SECRET"
-apt-get $APT_PROXY -y install jitsi-meet-tokens
+apt-get $APT_PROXY -y install \
+    jitsi-meet-tokens=1.0.6447-1
 EOS
 
 # hold
