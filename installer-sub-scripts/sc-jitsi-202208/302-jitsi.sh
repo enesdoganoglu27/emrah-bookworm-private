@@ -283,6 +283,11 @@ lxc-attach -n $MACH -- systemctl daemon-reload
 # COTURN
 # ------------------------------------------------------------------------------
 
+lxc-attach -n $MACH -- zsh <<EOS
+set -e
+apt install coturn -y
+EOS
+
 cp /tmp/eb/machines/eb-jitsi/etc/turnserver.custom.conf \
     $ROOTFS/etc/turnserver.conf
 
@@ -300,7 +305,6 @@ lxc-attach -n $MACH -- zsh <<EOS
 set -e
 adduser --system --group --no-create-home turnserver
 adduser turnserver ssl-cert
-apt install coturn -y
 systemctl restart coturn.service
 EOS
 
