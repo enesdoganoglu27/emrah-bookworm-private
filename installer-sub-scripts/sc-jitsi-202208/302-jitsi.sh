@@ -298,7 +298,9 @@ EOF
 
 lxc-attach -n $MACH -- zsh <<EOS
 set -e
+adduser --system --group --no-create-home turnserver
 adduser turnserver ssl-cert
+apt install coturn -y
 systemctl restart coturn.service
 EOS
 
