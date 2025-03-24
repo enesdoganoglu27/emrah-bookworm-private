@@ -283,8 +283,8 @@ lxc-attach -n $MACH -- systemctl daemon-reload
 # COTURN
 # ------------------------------------------------------------------------------
 
-#cp $machines/eb-jitsi/etc/turnserver.custom.conf \
-#    $ROOTFS/etc/turnserver.conf
+cp $machines/eb-jitsi/etc/turnserver.custom.conf \
+    $ROOTFS/etc/turnserver.conf
 
 cp $ROOTFS/etc/turnserver.conf $ROOTFS/etc/turnserver.conf.org
 
