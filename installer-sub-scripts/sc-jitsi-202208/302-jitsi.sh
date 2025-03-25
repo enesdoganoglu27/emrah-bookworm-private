@@ -183,12 +183,12 @@ debconf-set-selections <<< \
 
 apt-get $APT_PROXY -y install openjdk-17-jre-headless
 apt-get $APT_PROXY -y --install-recommends install \
-    jitsi-meet=2.0.7648-1 \
-    jitsi-meet-web=1.0.6447-1 \
-    jitsi-meet-web-config=1.0.6447-1 \
-    jitsi-meet-prosody=1.0.6447-1 \
-    jitsi-videobridge2=2.2-22-g42bc1b99-1 \
-    jicofo=1.0-911-1
+    jitsi-meet=2.0.9779-1 \
+    jitsi-meet-web=1.0.8206-1 \
+    jitsi-meet-web-config=1.0.8206-1 \
+    jitsi-meet-prosody=1.0.8206-1 \
+    jitsi-videobridge2=2.3-168-g28674f78-1 \
+    jicofo=1.0-1101-1
 EOS
 
 # jitsi-meet-tokens
@@ -210,7 +210,7 @@ debconf-set-selections <<< \
 debconf-set-selections <<< \
     "jitsi-meet-tokens jitsi-meet-tokens/appsecret password $APP_SECRET"
 apt-get $APT_PROXY -y install \
-    jitsi-meet-tokens=1.0.6447-1
+    jitsi-meet-tokens=1.0.8206-1
 EOS
 
 # hold
